@@ -1,19 +1,20 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
-import "../../styles/Nav.scss";
+import "../../styles/NavMenu.scss";
+import croix from "../../assets/img/14.png";
 import menu from "../../assets/img/Menu.png";
 
-const NavMain = () => {
+const NavMainMenu = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
 
   return (
     <>
-      <nav className="NavMain">
-        <NavLink to="/menu">
-          <img className="menu" src={menu} alt="" />
+      <nav className="NavMainMenu">
+        <NavLink to="/">
+          <img className="menu" src={croix} alt="" />
         </NavLink>
       </nav>
-      <nav className="NavMainTwo">
+      <nav className="NavMainTwoMenu">
         <div>
           {isLoggedIn && (
             <>
@@ -38,4 +39,4 @@ const NavMain = () => {
   );
 };
 
-export default NavMain;
+export default NavMainMenu;

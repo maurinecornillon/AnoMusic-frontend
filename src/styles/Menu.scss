@@ -1,0 +1,25 @@
+.Menu {
+  height: 660px;
+  width: 100%;
+}
+
+.MenuLogout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  border: red solid 2px;
+  padding: 10px;
+}
+
+.BackgroundMenu {
+  display: flex;
+  align-items: flex-end;
+  border: red solid 2px;
+  height: 600px;
+  img {
+    object-fit: contain;
+    width: 100%;
+  }
+}

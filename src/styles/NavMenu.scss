@@ -1,0 +1,43 @@
+:root {
+  --black-color: #212121; /* use :  var(--black-color); */
+  --white-color: #ffff; /* use :  var(--white-color); */
+}
+
+.NavMainMenu {
+  display: flex;
+  width: 100%;
+  height: 8rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-color);
+  border-bottom: #212121 solid 2px;
+  position: absolute;
+  background-color: white;
+  .menu {
+    object-fit: contain;
+    height: 12.5rem;
+  }
+}
+
+.NavMainTwoMenu {
+  display: flex;
+  width: 100%;
+  height: 8rem;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--black-color);
+
+  .nav-logout {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: var(--black-color) 2px solid;
+    height: 8rem;
+    width: 20rem;
+    padding: 10px;
+    position: relative;
+  }
+}

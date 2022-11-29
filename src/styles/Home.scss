@@ -1,0 +1,25 @@
+.HomeMain {
+  display: flex;
+  justify-content: space-between;
+  height: 660px;
+  background-color: var(--black-color);
+  .LeftHome {
+    border-right: solid 2px var(--white-color);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    img {
+      object-fit: contain;
+    }
+  }
+  .RightHome {
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    section {
+      border: solid 2px var(--white-color);
+
+      height: 100%;
+    }
+  }
+}
