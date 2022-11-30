@@ -3,6 +3,7 @@ import useForm from "../../hooks/useForm";
 import apiHandler from "../../api/apiHandler";
 import useAuth from "../../auth/useAuth";
 import { useNavigate } from "react-router-dom";
+import "../../styles/FormLogIn.scss";
 
 const FormLogIn = () => {
   const [{ username, password }, handleChange] = useForm({
@@ -31,15 +32,16 @@ const FormLogIn = () => {
   return (
     <>
       {error && <h3 className="error">{error.message}</h3>}
-      <form onSubmit={handleSubmit}>
-        <h2>Log In</h2>
 
+      <form className="container-login" onSubmit={handleSubmit}>
+        <h2>LOG IN</h2>
         <input
           type="text"
           id="username"
           name="username"
           onChange={handleChange}
           value={username}
+          autoComplete="hey"
         />
 
         <input

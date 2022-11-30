@@ -6,8 +6,10 @@ import Menu from "./components/Nav/Menu";
 //PAGES
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
-import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import About from "./pages/About";
+import Articles from "./pages/Articles";
+import FormAuthSignUp from "./pages/FormAuthSignUp";
 
 function App() {
   return (
@@ -15,9 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<LoggedOut />}>
+          <Route path="/formauthsignup" element={<FormAuthSignUp />} />
           <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<Signup />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/articles" element={<Articles />} />
         </Route>
         <Route element={<PrivateRoute />}>
           {/* All routes after the PrivateRoute require the user to be loggedIn */}

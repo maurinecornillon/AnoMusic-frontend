@@ -12,7 +12,7 @@ const Home = () => {
           <img src={logo} alt="" />
         </div>
         <div className="RightHome">
-          <section> </section>
+          <section></section>
         </div>
       </div>
     </>

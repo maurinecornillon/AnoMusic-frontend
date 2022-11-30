@@ -1,0 +1,37 @@
+.main-about {
+  height: 660px;
+  background-color: var(--black-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+
+  .about {
+    display: flex;
+    justify-content: center;
+    width: 48.8rem;
+  }
+  .hidden {
+    color: var(--black-color);
+  }
+  .title {
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    width: 45%;
+    transform: rotate(-90deg);
+  }
+  .txt {
+    white-space: nowrap;
+    font-size: 6rem;
+    animation: scrollTxt 10s linear infinite;
+  }
+
+  @keyframes scrollTxt {
+    0% {
+      transform: translate(-70%, 0);
+    }
+    100% {
+      transform: translate(0%, 0);
+    }
+  }
+}

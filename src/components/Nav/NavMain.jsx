@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
 import "../../styles/Nav.scss";
-import menu from "../../assets/img/Menu.png";
 
 const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
@@ -10,7 +9,11 @@ const NavMain = () => {
     <>
       <nav className="NavMain">
         <NavLink to="/menu">
-          <img className="menu" src={menu} alt="" />
+          <div class="hamburger">
+            <div class="top-bun"></div>
+            <div class="meat"></div>
+            <div class="bottom-bun"></div>
+          </div>
         </NavLink>
       </nav>
       <nav className="NavMainTwo">
@@ -26,9 +29,9 @@ const NavMain = () => {
           {!isLoggedIn && (
             <>
               <div className="nav-logout">
-                <NavLink to="/signup">SIGN UP</NavLink>
+                <NavLink to="/formauthsignup">SIGN UP</NavLink>
                 <span> {"/"} </span>
-                <NavLink to="/login">LOG IN</NavLink>
+                <NavLink to="/formauthsignup">LOG IN</NavLink>
               </div>
             </>
           )}

@@ -27,9 +27,9 @@ const NavMainMenu = () => {
           {!isLoggedIn && (
             <>
               <div className="nav-logout">
-                <NavLink to="/signup">SIGN UP</NavLink>
+                <NavLink to="/formauthsignup">SIGN UP</NavLink>
                 <span> {"/"} </span>
-                <NavLink to="/login">LOG IN</NavLink>
+                <NavLink to="/formauthsignup">LOG IN</NavLink>
               </div>
             </>
           )}

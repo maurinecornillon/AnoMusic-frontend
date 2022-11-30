@@ -1,0 +1,45 @@
+.FormMain {
+  display: flex;
+  justify-content: space-between;
+  height: 660px;
+  background-color: var(--black-color);
+  .LeftForm {
+    border-right: solid 2px var(--white-color);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    img {
+      object-fit: contain;
+    }
+  }
+  .RightForm {
+    width: 50%;
+    height: 100%;
+
+    .HeaderForm {
+      display: flex;
+      justify-content: space-around;
+      color: white;
+      font-size: 2rem;
+      border-bottom: solid 2px white;
+      width: 100%;
+      padding: 20px;
+    }
+    .signup {
+      background-image: linear-gradient(120deg, white, white 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.1em;
+      background-position: 0 100%;
+      transition: background-size 0.25s ease-in;
+      cursor: pointer;
+    }
+    span:hover {
+      background-image: linear-gradient(120deg, white, white 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.1em;
+      background-position: 0 100%;
+      transition: background-size 0.25s ease-in;
+      cursor: pointer;
+    }
+  }
+}

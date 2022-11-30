@@ -2,6 +2,7 @@ import useForm from "../../hooks/useForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/FormSignUp.scss";
 
 const FormSignUp = () => {
   const [values, handleChange] = useForm({
@@ -28,8 +29,12 @@ const FormSignUp = () => {
   return (
     <>
       {error && <h3 className="error">{error.message}</h3>}
-      <form onSubmit={handleSubmit}>
-        <h2>Signup</h2>
+      <form
+        autocomplete="off"
+        className="container-signup"
+        onSubmit={handleSubmit}
+      >
+        <h2>SIGN UP</h2>
 
         <input
           onChange={handleChange}
@@ -39,25 +44,25 @@ const FormSignUp = () => {
           id="username"
           name="username"
         />
+        <div className="container-name">
+          <input
+            onChange={handleChange}
+            value={values.firstName}
+            placeholder="FIRST NAME"
+            type="text"
+            id="firstName"
+            name="firstName"
+          />
 
-        <input
-          onChange={handleChange}
-          value={values.firstName}
-          placeholder="FIRST NAME"
-          type="text"
-          id="firstName"
-          name="firstName"
-        />
-
-        <input
-          onChange={handleChange}
-          value={values.lastName}
-          placeholder="LAST NAME"
-          type="text"
-          id="lastName"
-          name="lastName"
-        />
-
+          <input
+            onChange={handleChange}
+            value={values.lastName}
+            placeholder="LAST NAME"
+            type="text"
+            id="lastName"
+            name="lastName"
+          />
+        </div>
         <input
           onChange={handleChange}
           value={values.email}
@@ -75,6 +80,7 @@ const FormSignUp = () => {
           id="password"
           name="password"
         />
+
         <button>REGISTER</button>
       </form>
     </>

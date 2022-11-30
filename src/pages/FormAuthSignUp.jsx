@@ -1,14 +1,14 @@
 import React from "react";
 
 // IMPORT COMPONENTS
-import FormLogIn from "../components/Forms/FormLogIn";
+import FormSignUp from "../components/Forms/FormSignUp";
 import NavMain from "../components/Nav/NavMain";
 
 import { NavLink } from "react-router-dom";
-import "../../src/styles/FormAuthLogIn.scss";
+import "../../src/styles/FormAuthSignUp.scss";
 import logo from "../assets/img/Logoblanc.svg";
 
-function LogIn() {
+function FormAuthSignUp() {
   return (
     <>
       <NavMain />
@@ -19,16 +19,16 @@ function LogIn() {
 
         <div className="RightForm">
           <div className="HeaderForm">
-            <NavLink to="/formauthsignup">
-              <span>SIGN UP</span>
+            <span className="signup">SIGN UP</span>
+            <NavLink to="/login">
+              <span>LOG IN</span>
             </NavLink>
-            <span className="login">LOG IN</span>
           </div>
-          <FormLogIn />
+          <FormSignUp />
         </div>
       </div>
     </>
   );
 }
 
-export default LogIn;
+export default FormAuthSignUp;
