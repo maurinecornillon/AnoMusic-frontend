@@ -16,17 +16,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route element={<LoggedOut />}>
-          <Route path="/formauthsignup" element={<FormAuthSignUp />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/articles" element={<Articles />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          {/* All routes after the PrivateRoute require the user to be loggedIn */}
-          <Route path="/profile" element={<Profile />} />
-        </Route>
+        <Route path="/formauthsignup" element={<FormAuthSignUp />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </div>
   );

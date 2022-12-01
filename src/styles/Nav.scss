@@ -24,7 +24,6 @@
   color: var(--white-color);
 
   .nav-logout {
-    font-family: "Roboto", sans-serif;
     font-size: 2rem;
     gap: 15px;
     display: flex;
@@ -35,6 +34,11 @@
     width: 20rem;
     padding: 10px;
     position: relative;
+  }
+  .logout {
+    background: none;
+    border: none;
+    color: white;
   }
 }
 

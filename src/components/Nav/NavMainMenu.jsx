@@ -9,32 +9,42 @@ const NavMainMenu = () => {
 
   return (
     <>
-      <nav className="NavMainMenu">
-        <NavLink to="/">
-          <img className="menu" src={croix} alt="" />
-        </NavLink>
-      </nav>
-      <nav className="NavMainTwoMenu">
-        <div>
-          {isLoggedIn && (
-            <>
-              <NavLink to="/profile">
-                {currentUser && currentUser.email}
-              </NavLink>
-              <button onClick={removeUser}>Log-Out</button>
-            </>
-          )}
-          {!isLoggedIn && (
-            <>
+      {isLoggedIn && (
+        <>
+          <nav className="NavMainMenu">
+            <NavLink to="/">
+              <img className="menu" src={croix} alt="" />
+            </NavLink>
+          </nav>
+          <nav className="NavMainTwoMenu">
+            <div>
+              <div className="nav-logout">
+                <button className="logout" onClick={removeUser}>
+                  LOG OUT
+                </button>
+              </div>
+            </div>
+          </nav>
+        </>
+      )}
+      {!isLoggedIn && (
+        <>
+          <nav className="NavMainMenu">
+            <NavLink to="/">
+              <img className="menu" src={croix} alt="" />
+            </NavLink>
+          </nav>
+          <nav className="NavMainTwoMenu">
+            <div>
               <div className="nav-logout">
                 <NavLink to="/formauthsignup">SIGN UP</NavLink>
                 <span> {"/"} </span>
                 <NavLink to="/formauthsignup">LOG IN</NavLink>
               </div>
-            </>
-          )}
-        </div>
-      </nav>
+            </div>
+          </nav>
+        </>
+      )}
     </>
   );
 };
