@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 //COMPONENTS
-import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
-import LoggedOut from "./components/LoggedOut/LoggedOut";
 import Menu from "./components/Nav/Menu";
 //PAGES
 import Home from "./pages/Home";
@@ -10,6 +8,8 @@ import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Articles from "./pages/Articles";
 import FormAuthSignUp from "./pages/FormAuthSignUp";
+import UpdateProfile from "./pages/UpdateProfile";
+import Publish from "./pages/Publish";
 
 function App() {
   return (
@@ -21,6 +21,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/publish" element={<Publish />} />
+        <Route path="/updateprofile" element={<UpdateProfile />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>
     </div>

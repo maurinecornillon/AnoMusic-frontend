@@ -51,6 +51,20 @@ const service = {
       .catch(errorHandler);
   },
 
+  updateprofile(userInfo) {
+    return service
+      .post("/api/profile/updateme", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  publish(userInfo) {
+    return service
+      .post("/api/publish/music", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   // getAllTheCats() {
   // 	return service
   // 		.get("/api/cats")

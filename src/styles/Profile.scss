@@ -1,0 +1,49 @@
+.container-profile {
+  height: 660px;
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: center;
+  .profile {
+    border-right: white 2px solid;
+    border-left: white 2px solid;
+    width: 40%;
+    .nav-profile {
+      border-bottom: white solid 2px;
+      display: flex;
+      height: 150px;
+
+      .container-avatar {
+        border: white solid 2px;
+        height: 150px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .avatar {
+          border: white solid 2px;
+          border-radius: 50px;
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .info-profile {
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        .params {
+          width: 50px;
+          height: 50px;
+        }
+        p {
+          font-size: 2rem;
+          color: white;
+        }
+      }
+      .description {
+        padding-left: 20px;
+        color: white;
+        height: 60px;
+      }
+    }
+  }
+}

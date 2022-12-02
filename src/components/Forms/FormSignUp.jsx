@@ -30,7 +30,7 @@ const FormSignUp = () => {
     <>
       {error && <h3 className="error">{error.message}</h3>}
       <form
-        autocomplete="off"
+        autoComplete="off"
         className="container-signup"
         onSubmit={handleSubmit}
       >
