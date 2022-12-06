@@ -42,7 +42,6 @@ function UpdateProfile() {
     <>
       <NavMain />
       <div className="UpdateMain">
-        <div>TEST</div>
         <div className="container-updateprofile">
           <div className="update">
             <div className="header-updateprofile">
@@ -104,7 +103,6 @@ function UpdateProfile() {
             </form>
           </div>
         </div>
-        <div>TEST</div>
       </div>
     </>
   );

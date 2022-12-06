@@ -2,22 +2,20 @@ import React from "react";
 import NavMain from "../components/Nav/NavMain";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../src/styles/Publish.scss";
 import planet from "../assets/img/4.png";
 
 function Publish() {
-  const [publishment, setPublishment] = useState(false);
-
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState([]);
   const [cover, setCover] = useState(null);
   const [audio, setAudio] = useState(null);
-
   const [data, setData] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setPublishment(true);
 
     const formData = new FormData();
     formData.append("title", title);
@@ -37,8 +35,7 @@ function Publish() {
       );
 
       setData(response.data);
-      console.log(response.data);
-      setPublishment(false);
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
@@ -48,7 +45,6 @@ function Publish() {
     <>
       <NavMain />
       <div className="UpdateMain">
-        <div>TEST</div>
         <div className="container-updateprofile">
           <div className="update">
             <div className="header-updateprofile">
@@ -76,7 +72,8 @@ function Publish() {
                 placeholder="CHOOSE YOUR AUDIO"
                 id="audio"
                 name="audio"
-              />
+              ></input>
+
               <input
                 type="file"
                 onChange={(event) => {
@@ -87,11 +84,32 @@ function Publish() {
                 name="cover"
               />
 
+              <select
+                // multiple="multiple"
+                name="genre"
+                onChange={(event) => {
+                  setGenre(
+                    Array(...event.target.options)
+                      .filter((option) => option.selected)
+                      .map((option) => option.value)
+                  );
+                }}
+              >
+                <option value="">--TRY TO DEFINE YOUR MUSIC--</option>
+                <option value="cold-wave">cold-wave</option>
+                <option value="post-punk">post-punk</option>
+                <option value="new-wave">new-wave</option>
+                <option value="hip-hop">hip-hop</option>
+                <option value="rock">rock</option>
+                <option value="pop">pop</option>
+                <option value="EBM">EBM</option>
+                <option value="EDM">EDM</option>
+              </select>
+
               <button>PUBLISH</button>
             </form>
           </div>
         </div>
-        <div>TEST</div>
       </div>
     </>
   );

@@ -4,6 +4,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
+  border-bottom: white solid 2px;
 
   .about {
     display: flex;
@@ -16,9 +17,9 @@
   .title {
     overflow: hidden;
     display: flex;
-    height: 100%;
-    width: 45%;
-    transform: rotate(-90deg);
+    height: 30%;
+    width: 100%;
+    transform: translate(-90deg);
   }
   .txt {
     white-space: nowrap;
