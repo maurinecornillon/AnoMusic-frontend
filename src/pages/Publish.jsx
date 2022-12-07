@@ -102,6 +102,7 @@ function Publish() {
                 <option value="hip-hop">hip-hop</option>
                 <option value="rock">rock</option>
                 <option value="pop">pop</option>
+                <option value="indie-pop">indie-pop</option>
                 <option value="EBM">EBM</option>
                 <option value="EDM">EDM</option>
               </select>

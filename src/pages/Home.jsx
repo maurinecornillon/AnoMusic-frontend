@@ -4,8 +4,8 @@ import "../../src/styles/Home.scss";
 //PACKAGE
 import { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
-import Modal from "react-bootstrap/Modal";
-import ModalDialog from "react-bootstrap/ModalDialog";
+import { useNavigate } from "react-router-dom";
+
 import NavMain from "../components/Nav/NavMain";
 import axios from "axios";
 import useAuth from "../auth/useAuth";
@@ -15,15 +15,26 @@ import logo from "../assets/img/Logoblanc.svg";
 import like from "../assets/img/1.png";
 import play from "../assets/img/Play.png";
 import more from "../assets/img/More.png";
+import close from "../assets/img/14.png";
 
 const Home = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   const [data, setData] = useState();
-  const [audio, setAudio] = useState();
-  const [cover, setCover] = useState();
-  const [title, setTitle] = useState();
+  const navigate = useNavigate();
 
-  const [lgShow, setLgShow] = useState(false);
+  const [player, setPlayer] = useState({
+    currentTrack: null,
+    show: false,
+  });
+
+  function playAudio(audio) {
+    setPlayer((currentState) => {
+      return {
+        show: true,
+        currentTrack: audio,
+      };
+    });
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,12 +43,13 @@ const Home = () => {
       );
 
       setData(response.data);
-      setAudio(response.data.publish[0].audio.url);
-      setTitle(response.data.publish[0].title);
-      setCover(response.data.publish[0].cover.url);
     };
     fetchData();
   }, []);
+
+  const audio = player.currentTrack?.audio.url;
+  const cover = player.currentTrack?.cover.url;
+  const title = player.currentTrack?.title;
 
   return (
     <>
@@ -46,28 +58,29 @@ const Home = () => {
           <NavMain />
           <div className="main-about-home">
             <div className="title">
-              <span class="txt t1">
+              <span className="txt t1">
                 - DISCOVER - DISCOVER - DISCOVER - DISCOVER&nbsp;
               </span>
-              <span class="txt t2">
+              <span className="txt t2">
                 - DISCOVER - DISCOVER - DISCOVER - DISCOVER&nbsp;
               </span>
             </div>
           </div>
+
           <section className="body-home">
-            {data.publish.map((el, key) => {
+            {data?.publish.map((el, key) => {
               return (
                 <>
-                  <div class="section-fluid-main-home" key={key}>
-                    <div class="section-row-home">
-                      <div class="section-col-home">
-                        <div class="section-home">
-                          <div class="section-in-home">
+                  <div className="section-fluid-main-home" key={key}>
+                    <div className="section-row-home">
+                      <div className="section-col-home">
+                        <div className="section-home">
+                          <div className="section-in-home">
                             <img src={el.cover.url} alt="" />
                           </div>
                         </div>
                       </div>
-                      <div class="hover-text-home">
+                      <div className="hover-text-home">
                         <h2>{el.title}</h2>
                       </div>
                     </div>
@@ -80,11 +93,18 @@ const Home = () => {
                           className="like"
                           src={play}
                           alt=""
-                          onClick={() => setLgShow(true)}
+                          onClick={() => {
+                            playAudio(el);
+                          }}
                         />
                       </p>
                       <p>
-                        <img className="like" src={more} alt="" />
+                        <img
+                          className="like"
+                          src={more}
+                          alt=""
+                          onClick={() => navigate(`/music/${el._id}`)}
+                        />
                       </p>
                     </div>
                   </div>
@@ -92,44 +112,18 @@ const Home = () => {
               );
             })}
           </section>
-          {/* <div className="HomeMainLog">
-            <div>TEST</div>
 
-            <div className="main-home">
-              {data.publish.map((el, key) => {
-                return (
-                  <>
-                    <div className="card-main" key={key}>
-                      <div className="img">
-                        <img
-                          src={el.cover.url}
-                          alt=""
-                          onClick={() => setLgShow(true)}
-                        />
-                      </div>
-
-                      <div className="resum-card">
-                        <div className="left-card">
-                          <p className="name">MonaB</p>
-                          <img src={like} alt="" />
-                        </div>
-                        <div className="right-card">
-                          <p className="title">{el.title}</p>
-
-                          <p>{el.genre[0]}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
-            </div> */}
-          <div className="HomeMainLog">
-            <Modal
+          {player.show && (
+            <div
               className="modal"
-              show={lgShow}
-              onHide={() => setLgShow(false)}
-              aria-labelledby="example-modal-sizes-title-lg"
+              // onHide={() => setPlayer({ ...player, show: false })}
+              style={{
+                position: "fixed",
+                height: "6rem",
+                width: "100vw",
+                bottom: "0",
+                zIndex: "1",
+              }}
             >
               <div className="info-audio">
                 <img src={cover} className="audio-cover" alt="" />
@@ -137,12 +131,20 @@ const Home = () => {
                 <div className="audio">
                   <ReactAudioPlayer src={audio} autoPlay controls />
                 </div>
+                <div className="container-close">
+                  <img
+                    className="close"
+                    src={close}
+                    onClick={() => setPlayer({ ...player, show: false })}
+                    alt=""
+                  />
+                </div>
               </div>
-              {/* <Modal.Header closeButton></Modal.Header> */}
-            </Modal>
-          </div>
+            </div>
+          )}
         </>
       )}
+
       {!isLoggedIn && (
         <>
           <NavMain />
@@ -150,9 +152,7 @@ const Home = () => {
             <div className="LeftHome">
               <img src={logo} alt="" />
             </div>
-            <div className="RightHome">
-              <section></section>
-            </div>
+            <div className="RightHome"></div>
           </div>
         </>
       )}

@@ -10,6 +10,7 @@ import Articles from "./pages/Articles";
 import FormAuthSignUp from "./pages/FormAuthSignUp";
 import UpdateProfile from "./pages/UpdateProfile";
 import Publish from "./pages/Publish";
+import PublishFocus from "./pages/PublishFocus";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/articles" element={<Articles />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/publish" element={<Publish />} />
+        <Route path="/music/:id" element={<PublishFocus />} />
         <Route path="/updateprofile" element={<UpdateProfile />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>

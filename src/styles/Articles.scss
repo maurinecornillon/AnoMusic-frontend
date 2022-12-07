@@ -7,6 +7,7 @@
   padding: 0;
   overflow-x: none;
   background-color: var(--black-color);
+
   p {
     font-weight: 400;
     font-size: 16px;
@@ -27,6 +28,7 @@
   margin-left: auto;
   max-width: 1140px;
   padding: 100px 0;
+  // animation: new-item-animation 0.6s linear forwards;
 }
 .section-row {
   display: -ms-flexbox;
@@ -71,6 +73,7 @@
   width: 100%;
   height: auto;
   transition: transform 250ms linear;
+  cursor: pointer;
 }
 .section-col:hover .section-in img {
   transform: scale(1.1) rotate(-3deg);
