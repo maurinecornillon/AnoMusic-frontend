@@ -21,7 +21,7 @@ const PublishFocus = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/publish/music/${id}`,
+        `${process.env.VITE_BACKEND_URL}/api/publish/music/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,

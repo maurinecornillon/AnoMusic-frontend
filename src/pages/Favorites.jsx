@@ -23,7 +23,7 @@ const Favorite = () => {
   useEffect(() => {
     const getFavorite = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/favorite/getAll`,
+        `${process.env.VITE_BACKEND_URL}/api/favorite/getAll`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,

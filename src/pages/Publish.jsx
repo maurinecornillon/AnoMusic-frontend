@@ -31,7 +31,7 @@ function Publish() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/publish/music",
+        `${process.env.VITE_BACKEND_URL}/api/publish/music`,
         formData,
         {
           headers: {
