@@ -37,7 +37,7 @@ function Articles() {
               </div>
             </div>
             <div className="hover-text">
-              <h2>Toy Pig</h2>
+              <h2>Discover Shame</h2>
             </div>
             <div className="section-col">
               <div className="section">
@@ -47,7 +47,7 @@ function Articles() {
               </div>
             </div>
             <div className="hover-text">
-              <h2>Shy Portrait</h2>
+              <h2>Artists Portraits</h2>
             </div>
             <div className="section-col">
               <div className="section">
@@ -57,7 +57,7 @@ function Articles() {
               </div>
             </div>
             <div className="hover-text">
-              <h2>Shy Portrait</h2>
+              <h2>Why french rap became popular ?</h2>
             </div>
           </div>
         </div>

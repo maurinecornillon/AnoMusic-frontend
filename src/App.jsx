@@ -11,6 +11,7 @@ import FormAuthSignUp from "./pages/FormAuthSignUp";
 import UpdateProfile from "./pages/UpdateProfile";
 import Publish from "./pages/Publish";
 import PublishFocus from "./pages/PublishFocus";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/publish" element={<Publish />} />
         <Route path="/music/:id" element={<PublishFocus />} />
         <Route path="/updateprofile" element={<UpdateProfile />} />
+        <Route path="/favorite" element={<Favorites />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>
     </div>

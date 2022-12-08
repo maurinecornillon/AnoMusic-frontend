@@ -1,9 +1,15 @@
 import React from "react";
+import "../../src/styles/Publish.scss";
+
+//COMPONENTN
 import NavMain from "../components/Nav/NavMain";
+
+//PACKAGES
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../src/styles/Publish.scss";
+
+//IMG
 import planet from "../assets/img/4.png";
 
 function Publish() {
@@ -63,7 +69,7 @@ function Publish() {
                 id="title"
                 name="title"
               />
-
+              <label for="audio">CHOOSE YOUR AUDIO</label>
               <input
                 type="file"
                 onChange={(event) => {
@@ -74,6 +80,7 @@ function Publish() {
                 name="audio"
               ></input>
 
+              <label for="cover">CHOOSE YOUR COVER</label>
               <input
                 type="file"
                 onChange={(event) => {

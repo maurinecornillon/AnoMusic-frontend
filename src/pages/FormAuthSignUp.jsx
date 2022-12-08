@@ -1,11 +1,14 @@
 import React from "react";
+import "../../src/styles/FormAuthSignUp.scss";
 
 // IMPORT COMPONENTS
 import FormSignUp from "../components/Forms/FormSignUp";
 import NavMain from "../components/Nav/NavMain";
 
+//NAV
 import { NavLink } from "react-router-dom";
-import "../../src/styles/FormAuthSignUp.scss";
+
+//IMG
 import logo from "../assets/img/Logoblanc.svg";
 
 function FormAuthSignUp() {

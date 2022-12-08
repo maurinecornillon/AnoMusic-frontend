@@ -7,7 +7,6 @@ import ReactAudioPlayer from "react-audio-player";
 import { useParams } from "react-router-dom";
 import NavMain from "../components/Nav/NavMain";
 import axios from "axios";
-import useAuth from "../auth/useAuth";
 
 //IMG
 import like from "../assets/img/1.png";
@@ -15,7 +14,6 @@ import play from "../assets/img/Play.png";
 import close from "../assets/img/14.png";
 
 const PublishFocus = () => {
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
   const { id } = useParams();
   const [publish, setPublish] = useState({});
   const [lgShow, setLgShow] = useState(false);

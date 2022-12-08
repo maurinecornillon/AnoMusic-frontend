@@ -1,25 +1,30 @@
 import React from "react";
 import "../../src/styles/Home.scss";
 
+//COMPONENT
+import NavMain from "../components/Nav/NavMain";
+
 //PACKAGE
 import { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
-import { useNavigate } from "react-router-dom";
-
-import NavMain from "../components/Nav/NavMain";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../auth/useAuth";
 
 //IMG
 import logo from "../assets/img/Logoblanc.svg";
 import like from "../assets/img/1.png";
+import dislike from "../assets/img/Heartvide.png";
 import play from "../assets/img/Play.png";
 import more from "../assets/img/More.png";
 import close from "../assets/img/14.png";
 
+//
 const Home = () => {
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
+  const { isLoggedIn } = useAuth();
   const [data, setData] = useState();
+  const [isFavorite, setIsFavorite] = useState(false);
+  const params = useParams();
   const navigate = useNavigate();
 
   const [player, setPlayer] = useState({
@@ -36,21 +41,43 @@ const Home = () => {
     });
   }
 
+  // GET ALL PUBLISH OF ALL USER
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:8080/api/publish/home`
+        `http://localhost:8080/api/publish/home`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
       );
-
-      setData(response.data);
+      console.log(response.data);
+      setData(response.data.publishObject);
     };
     fetchData();
   }, []);
+
+  // ADD FAVORITE
+  const addFavorite = async (id) => {
+    const response = await axios.post(
+      `http://localhost:8080/api/favorite/add/${id}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
+    );
+    console.log(response.data);
+    setIsFavorite(true);
+  };
 
   const audio = player.currentTrack?.audio.url;
   const cover = player.currentTrack?.cover.url;
   const title = player.currentTrack?.title;
 
+  if (!data) return <p>Loading</p>;
   return (
     <>
       {isLoggedIn && (
@@ -68,7 +95,7 @@ const Home = () => {
           </div>
 
           <section className="body-home">
-            {data?.publish.map((el, key) => {
+            {data?.map((el, key) => {
               return (
                 <>
                   <div className="section-fluid-main-home" key={key}>
@@ -86,7 +113,21 @@ const Home = () => {
                     </div>
                     <div className="icone">
                       <p>
-                        <img className="like" src={like} alt="" />
+                        {el.isFav ? (
+                          <img
+                            className="like"
+                            src={like}
+                            alt=""
+                            onClick={() => addFavorite(el._id)}
+                          />
+                        ) : (
+                          <img
+                            className="like"
+                            src={dislike}
+                            alt=""
+                            onClick={() => addFavorite(el._id)}
+                          />
+                        )}
                       </p>
                       <p>
                         <img
@@ -116,7 +157,6 @@ const Home = () => {
           {player.show && (
             <div
               className="modal"
-              // onHide={() => setPlayer({ ...player, show: false })}
               style={{
                 position: "fixed",
                 height: "6rem",
@@ -152,7 +192,7 @@ const Home = () => {
             <div className="LeftHome">
               <img src={logo} alt="" />
             </div>
-            <div className="RightHome"></div>
+            <div className="RightHome"> DISCOVER NEW MUSIC </div>
           </div>
         </>
       )}

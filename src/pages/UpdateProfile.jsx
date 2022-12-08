@@ -1,11 +1,17 @@
 import React from "react";
+import "../../src/styles/UpdateProfile.scss";
+
+//COMPONENTN
 import NavMain from "../components/Nav/NavMain";
+
+//PACKAGES
 import useAuth from "../auth/useAuth";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { useState } from "react";
 import apiHandler from "../api/apiHandler";
-import "../../src/styles/UpdateProfile.scss";
+
+//IMG
 import planet from "../assets/img/4.png";
 
 function UpdateProfile() {
@@ -78,16 +84,13 @@ function UpdateProfile() {
                 id="age"
                 name="age"
               />
-
+              <label for="image">CHOOSE YOUR AVATAR</label>
               <input
                 onChange={handleChange}
                 type="file"
                 name="image"
                 id="image"
                 accept="image/png, image/jpeg"
-                // value={
-                //   values?.image ? `C:\\fakepath\\${values.image.name}` : ""
-                // }
               />
 
               <input
