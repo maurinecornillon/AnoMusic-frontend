@@ -45,7 +45,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `${process.env.VITE_BACKEND_URL}/api/publish/home`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/publish/home`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -61,7 +61,7 @@ const Home = () => {
   // ADD FAVORITE
   const addFavorite = async (id) => {
     const response = await axios.post(
-      `${process.env.VITE_BACKEND_URL}/api/favorite/add/${id}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/favorite/add/${id}`,
       {},
       {
         headers: {

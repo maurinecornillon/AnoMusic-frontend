@@ -31,7 +31,7 @@ function Publish() {
 
     try {
       const response = await axios.post(
-        `${process.env.VITE_BACKEND_URL}/api/publish/music`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/publish/music`,
         formData,
         {
           headers: {
