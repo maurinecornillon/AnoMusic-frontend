@@ -43,19 +43,27 @@ const Home = () => {
 
   // GET ALL PUBLISH OF ALL USER
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/publish/home`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        }
-      );
-      console.log(response.data);
-      setData(response.data.publishObject);
-    };
-    fetchData();
+    try {
+      const token = localStorage.getItem("authToken");
+
+      const fetchData = async () => {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/publish/home`,
+          {
+            headers: {
+              Authorization:
+                token && `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          }
+        );
+        console.log(response.data);
+        setData(response.data.publishObject);
+      };
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      setData([]);
+    }
   }, []);
 
   // ADD FAVORITE
@@ -77,7 +85,6 @@ const Home = () => {
   const cover = player.currentTrack?.cover.url;
   const title = player.currentTrack?.title;
 
-  if (!data) return <p>Loading</p>;
   return (
     <>
       {isLoggedIn && (
