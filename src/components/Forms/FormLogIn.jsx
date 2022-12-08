@@ -39,6 +39,7 @@ const FormLogIn = () => {
           type="text"
           id="username"
           name="username"
+          placeholder="USERNAME"
           onChange={handleChange}
           value={username}
           autoComplete="hey"
@@ -48,6 +49,7 @@ const FormLogIn = () => {
           type="password"
           id="password"
           name="password"
+          placeholder="PASSWORD"
           onChange={handleChange}
           value={password}
         />
