@@ -105,7 +105,12 @@ const PublishFocus = () => {
               <img src={publish.cover?.url} className="audio-cover" alt="" />
               <div className="audio-title">{publish.title}</div>
               <div className="audio">
-                <ReactAudioPlayer src={publish.audio?.url} autoPlay controls />
+                <ReactAudioPlayer
+                  src={publish.audio?.url}
+                  autoPlay
+                  controls
+                  crossOrigin="anonymous"
+                />
               </div>
               <div className="container-close">
                 <img

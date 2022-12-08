@@ -176,7 +176,12 @@ const Home = () => {
                 <img src={cover} className="audio-cover" alt="" />
                 <div className="audio-title">{title}</div>
                 <div className="audio">
-                  <ReactAudioPlayer src={audio} autoPlay controls />
+                  <ReactAudioPlayer
+                    src={audio}
+                    autoPlay
+                    controls
+                    crossOrigin="anonymous"
+                  />
                 </div>
                 <div className="container-close">
                   <img
