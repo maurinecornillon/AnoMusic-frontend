@@ -6,7 +6,7 @@ import useAuth from "../../auth/useAuth";
 import "../../styles/Nav.scss";
 
 const NavMain = () => {
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
+  const { isLoggedIn, removeUser } = useAuth();
 
   return (
     <>

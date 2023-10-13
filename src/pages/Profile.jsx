@@ -22,13 +22,11 @@ import params from "../assets/img/Params.png";
 
 function Profile() {
   const { currentUser } = useAuth();
-  console.log("currentUser",currentUser)
   const { id } = useParams();
 
   if (!currentUser) return <div className="loading">Loading...</div>;
 
 
-  // console.log(currentUser.publication[0]._id);
 
   return (
     <>

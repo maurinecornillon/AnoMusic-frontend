@@ -21,6 +21,7 @@ import "../../src/styles/Publish.scss";
 import planet from "../assets/img/4.png";
 
 function Publish() {
+  // Define state variables for title, genre, cover, audio, and response data
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState([]);
   const [cover, setCover] = useState(null);
@@ -28,9 +29,11 @@ function Publish() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Create a FormData object to send form data with file uploads
     const formData = new FormData();
     formData.append("title", title);
     formData.append("genre", genre);
@@ -38,6 +41,7 @@ function Publish() {
     formData.append("audio", audio);
 
     try {
+       // Send a POST request to publish music
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/publish/music`,
         formData,
@@ -48,6 +52,7 @@ function Publish() {
         }
       );
 
+      // Store the response data and navigate back to the home page
       setData(response.data);
       navigate("/");
     } catch (error) {

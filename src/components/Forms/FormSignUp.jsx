@@ -1,13 +1,19 @@
 // TO SIGN UP
 
 // IMPORT
-import useForm from "../../hooks/useForm";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// Custom hook for handling form input
+import useForm from "../../hooks/useForm";
+// Module for making API requests
 import apiHandler from "../../api/apiHandler";
+
+// SCSS
 import "../../styles/FormSignUp.scss";
 
 const FormSignUp = () => {
+    // Use the useForm to manage form input state
   const [values, handleChange] = useForm({
     username: "",
     firstName: "",
@@ -15,17 +21,23 @@ const FormSignUp = () => {
     email: "",
     password: "",
   });
+  // Initialize state for handling login errors
   const [error, setError] = useState(null);
+  // Get the navigate function to redirect to different routes
   const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     apiHandler
+      // Make a sign-up API requests
       .signup(values)
       .then(() => {
+       // Redirect to the login page
         navigate("/login");
       })
       .catch((error) => {
+        // Set an error message if the sign-in request fails
         setError(error.response.data);
       });
   };

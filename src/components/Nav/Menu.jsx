@@ -11,7 +11,7 @@ import "../../styles/Menu.scss";
 
 //
 const Menu = () => {
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <NavMainMenu />

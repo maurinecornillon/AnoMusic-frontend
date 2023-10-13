@@ -6,7 +6,7 @@ import React from "react";
 // COMPONENT
 import NavMain from "../components/Nav/NavMain";
 
-// PACKAGE
+
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ReactAudioPlayer from "react-audio-player";
@@ -28,17 +28,23 @@ import close from "../assets/img/14.png";
 
 //
 const Home = () => {
+  // Get the authentication status from useAuth
   const { isLoggedIn } = useAuth();
+  // State to store data from API
   const [data, setData] = useState();
+  // State to manage favorite status
   const [isFavorite, setIsFavorite] = useState(false);
+  // Get parameters and navigate function for routing
   const params = useParams();
   const navigate = useNavigate();
 
+  // State to manage the audio player
   const [player, setPlayer] = useState({
     currentTrack: null,
     show: false,
   });
 
+  // Function to play an audio track in the audio player
   function playAudio(audio) {
     setPlayer((currentState) => {
       return {
@@ -49,6 +55,7 @@ const Home = () => {
   }
 
   // GET ALL PUBLISH OF ALL USER
+  // Get all publications from the API
   useEffect(() => {
     try {
       const token = localStorage.getItem("authToken");
@@ -74,6 +81,7 @@ const Home = () => {
   }, []);
 
   // ADD FAVORITE
+  // Function to add a publication to favorites
   const addFavorite = async (id) => {
     const response = await axios.post(
       `${import.meta.env.VITE_BACKEND_URL}/api/favorite/add/${id}`,
@@ -86,7 +94,8 @@ const Home = () => {
     );
     setIsFavorite(true);
   };
-
+  
+  // Extract audio, cover, and title from the current track
   const audio = player.currentTrack?.audio.url;
   const cover = player.currentTrack?.cover.url;
   const title = player.currentTrack?.title;

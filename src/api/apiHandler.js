@@ -1,18 +1,19 @@
 import axios from "axios";
 
-// A REVOIR
-
+// Create an instance of axios with a base URL
 const apiHandler = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: import.meta.env.VITE_BACKEND_URL,// Use the backend URL from environment variables
 });
 
+
+// Interceptor to add an Authorization header with a JWT token from local storage
 apiHandler.interceptors.request.use((config) => {
   const token = localStorage.getItem("authToken");
   config.headers.Authorization = token ? `Bearer ${token}` : "";
   return config;
 });
 
-//! Error handling to use in the catch
+// Function for handling errors in API requests
 function errorHandler(error) {
   if (error.data) {
     console.log(error.data && error.data.message);
@@ -21,7 +22,7 @@ function errorHandler(error) {
   throw error;
 }
 
-
+// Define a service object that extends the capabilities of the axios instance
 const service = {
   // Service is spread to have access to the basics get/post...
   ...apiHandler,

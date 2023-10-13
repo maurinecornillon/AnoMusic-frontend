@@ -12,7 +12,7 @@ import "../../styles/NavMenu.scss";
 import croix from "../../assets/img/14.png";
 
 const NavMainMenu = () => {
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
+  const { isLoggedIn, removeUser } = useAuth();
 
   return (
     <>

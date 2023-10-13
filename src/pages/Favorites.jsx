@@ -2,20 +2,20 @@
 /* PAGE WHERE WE CAN FIND ALL FAVORITES PUBLISH OF THE USER */ 
 
 
-// IMPORT REACT
+// IMPORT 
 import React, { useEffect, useState } from "react";
 
-//IMPORT COMPONENT
-import NavMain from "../components/Nav/NavMain";
-
-//PACKAGE
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
- //SCSS
- import "../../src/styles/Profile.scss";
+//IMPORT COMPONENT
+import NavMain from "../components/Nav/NavMain";
+
+
+//SCSS
+import "../../src/styles/Profile.scss";
 
 
 //IMG
@@ -23,11 +23,14 @@ import params from "../assets/img/Params.png";
 import more from "../assets/img/More.png";
 
 const Favorite = () => {
+   // State to store all favorite publications
   const [allFavorite, setAllFavorite] = useState([]);
+  // Get the current user from the authentication context
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
   //GET ALL FAVORITES OF THE USER
+  // Function to fetch all favorite publications of the user
   useEffect(() => {
     const getFavorite = async () => {
       const response = await axios.get(
@@ -43,6 +46,7 @@ const Favorite = () => {
     getFavorite();
   }, []);
 
+  // If the user is not authenticated, display a loading message
   if (!currentUser) return <div className="loading">Loading...</div>;
 
   return (

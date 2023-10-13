@@ -20,27 +20,34 @@ import "../../src/styles/UpdateProfile.scss";
 import planet from "../assets/img/4.png";
 
 function UpdateProfile() {
+   // Get the current user and the authentication function from the useAuth 
   const { currentUser, authenticateUser } = useAuth();
+  // Initialize state variables for form values, errors, and navigation
   const [values, handleChange, resetValus, setValues] = useForm(currentUser);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
+  // If there is a current user and form values are not set, populate the form with user data
   if (currentUser && !values) {
     setValues(currentUser);
   }
 
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Create a FormData object to send form data with file uploads
     const FD = new FormData();
 
+    // Append form values to the FormData object
     for (let [key, value] of Object.entries(values)) {
       FD.append(key, value);
     }
     apiHandler
       .updateprofile(FD)
       .then(async () => {
+        // Authenticate the user and navigate to the user's profile page
         await authenticateUser();
         navigate("/profile");
       })

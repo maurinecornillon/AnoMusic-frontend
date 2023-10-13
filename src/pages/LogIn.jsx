@@ -10,7 +10,6 @@ import NavMain from "../components/Nav/NavMain";
 import { NavLink } from "react-router-dom";
 
 // SCSS
-// import "../../src/styles/FormAuthLogIn.scss";
 import "./../styles/FormAuthLogIn.scss";
 
 //IMG
