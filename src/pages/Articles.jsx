@@ -1,6 +1,15 @@
-import "../../src/styles/Articles.scss";
-import test from "../assets/img/11.png";
+/* VIEW FOR ARTICLES PAGE */
+
+
+// IMPORT COMPONENT
 import NavMain from "../components/Nav/NavMain";
+
+// SCSS
+import "../../src/styles/Articles.scss";
+
+// IMPORT IMG
+import test from "../assets/img/11.png";
+
 
 function Articles() {
   return (

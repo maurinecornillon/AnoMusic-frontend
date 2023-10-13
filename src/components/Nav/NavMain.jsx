@@ -1,13 +1,16 @@
+// IMPORT
 import { NavLink } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
+
+// SCSS 
 import "../../styles/Nav.scss";
-import search from "../../assets/img/12.png";
 
 const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
 
   return (
     <>
+      {/* VERIFY IF WE ARE LOG IN*/}
       {isLoggedIn && (
         <>
           <nav className="NavMain">
@@ -31,6 +34,7 @@ const NavMain = () => {
           </nav>
         </>
       )}
+      {/* VERIFY IF WE ARE NOT LOG IN*/}
       {!isLoggedIn && (
         <>
           <nav className="NavMain">

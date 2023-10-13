@@ -1,5 +1,9 @@
+/* TO PUBLISH */
+
+
+
+// IMPORT REACT
 import React from "react";
-import "../../src/styles/Publish.scss";
 
 //COMPONENTN
 import NavMain from "../components/Nav/NavMain";
@@ -8,6 +12,10 @@ import NavMain from "../components/Nav/NavMain";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// SCSS
+import "../../src/styles/Publish.scss";
+
 
 //IMG
 import planet from "../assets/img/4.png";

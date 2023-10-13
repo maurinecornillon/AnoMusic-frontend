@@ -1,8 +1,15 @@
+// NAV WHEN WE ARE ON MENU
+
+
+// IMPORT
 import { NavLink } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
+
+//SCSS
 import "../../styles/NavMenu.scss";
+
+// IMPORT IMG
 import croix from "../../assets/img/14.png";
-import menu from "../../assets/img/Menu.png";
 
 const NavMainMenu = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();

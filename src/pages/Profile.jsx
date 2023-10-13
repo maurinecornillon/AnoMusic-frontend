@@ -1,5 +1,8 @@
+/* VIEW FOR PROFIL OF THE USER */
+
+
+// IMPORT REACT
 import React from "react";
-import "../../src/styles/Profile.scss";
 
 //COMPONENT
 import NavMain from "../components/Nav/NavMain";
@@ -9,18 +12,23 @@ import { useParams } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 import { NavLink } from "react-router-dom";
 
+// SCSS
+import "../../src/styles/Profile.scss";
+
+
 //IMG
 import like from "../assets/img/1.png";
 import params from "../assets/img/Params.png";
 
 function Profile() {
   const { currentUser } = useAuth();
+  console.log("currentUser",currentUser)
   const { id } = useParams();
 
   if (!currentUser) return <div className="loading">Loading...</div>;
 
-  console.log(currentUser.publication);
-  console.log(currentUser.publication[0]._id);
+
+  // console.log(currentUser.publication[0]._id);
 
   return (
     <>
@@ -46,7 +54,7 @@ function Profile() {
               </div>
             </div>
           </div>
-
+          
           {currentUser.publication.map((el, key) => {
             return (
               <>
@@ -64,11 +72,7 @@ function Profile() {
                     </div>
                   </div>
 
-                  {/* <div className="icone">
-                    <p>
-                      <img className="like" src={close} alt="" />
-                    </p>
-                  </div> */}
+               
                 </div>
               </>
             );
@@ -77,6 +81,8 @@ function Profile() {
       </div>
     </>
   );
+
+
 }
 
 export default Profile;

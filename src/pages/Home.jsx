@@ -1,17 +1,24 @@
-import React from "react";
-import "../../src/styles/Home.scss";
+/* HOME PAGE WHO IS DIFFERENT IF YOU ARE LOG OR NOT */
 
-//COMPONENT
+// IMPORT REACT
+import React from "react";
+
+// COMPONENT
 import NavMain from "../components/Nav/NavMain";
 
-//PACKAGE
+// PACKAGE
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import ReactAudioPlayer from "react-audio-player";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../auth/useAuth";
 
-//IMG
+// SCSS
+import "../../src/styles/Home.scss";
+
+
+// IMG
 import logo from "../assets/img/Logoblanc.svg";
 import like from "../assets/img/1.png";
 import dislike from "../assets/img/Heartvide.png";
@@ -77,7 +84,6 @@ const Home = () => {
         },
       }
     );
-    console.log(response.data);
     setIsFavorite(true);
   };
 
@@ -200,11 +206,20 @@ const Home = () => {
       {!isLoggedIn && (
         <>
           <NavMain />
+
           <div className="HomeMain">
             <div className="LeftHome">
               <img src={logo} alt="" />
             </div>
-            <div className="RightHome"> DISCOVER NEW MUSIC </div>
+            <div className="RightHome">
+              <div> CREATE -</div>
+              <div> UPLOAD -</div>
+              <div> SHARE -</div>
+              <div> LISTEN -</div>
+              <NavLink to="/formauthsignup">
+                <button>START NOW</button>
+              </NavLink>
+            </div>
           </div>
         </>
       )}

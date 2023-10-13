@@ -1,3 +1,6 @@
+// TO SIGN UP
+
+// IMPORT
 import useForm from "../../hooks/useForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "../../src/styles/Profile.scss";
 
-//COMPONENTS
+/* PAGE WHERE WE CAN FIND ALL FAVORITES PUBLISH OF THE USER */ 
+
+
+// IMPORT REACT
+import React, { useEffect, useState } from "react";
+
+//IMPORT COMPONENT
 import NavMain from "../components/Nav/NavMain";
 
 //PACKAGE
@@ -9,6 +13,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../auth/useAuth";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+
+ //SCSS
+ import "../../src/styles/Profile.scss";
+
 
 //IMG
 import params from "../assets/img/Params.png";
@@ -30,7 +38,6 @@ const Favorite = () => {
           },
         }
       );
-      console.log(response.data);
       setAllFavorite(response.data);
     };
     getFavorite();

@@ -1,3 +1,4 @@
+
 .container-login {
   display: flex;
   flex-direction: column;
@@ -26,6 +27,11 @@
     width: 80%;
     color: white;
     outline: none;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   .container-name {

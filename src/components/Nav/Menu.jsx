@@ -1,14 +1,21 @@
+// MENU WHEN LOG IN AND LOT OUT
+
+// IMPORT
 import { NavLink } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
 import NavMainMenu from "../../components/Nav/NavMainMenu";
+
+// SCSS
 import "../../styles/Menu.scss";
 
+
+//
 const Menu = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   return (
     <>
       <NavMainMenu />
-
+      {/* VERIFY IF WE ARE LOG IN*/}
       {isLoggedIn && (
         <>
           <section className="background-menu-login">
@@ -49,6 +56,8 @@ const Menu = () => {
           </section>
         </>
       )}
+
+      {/* VERIFY IF WE ARE NOT LOG IN */}
       {!isLoggedIn && (
         <>
           <section>

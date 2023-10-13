@@ -1,5 +1,7 @@
+/* PAGE FOR UPDATE USER PROFILE */
+
+// IMPORT REACT
 import React from "react";
-import "../../src/styles/UpdateProfile.scss";
 
 //COMPONENTN
 import NavMain from "../components/Nav/NavMain";
@@ -10,6 +12,9 @@ import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { useState } from "react";
 import apiHandler from "../api/apiHandler";
+
+// SCSS
+import "../../src/styles/UpdateProfile.scss";
 
 //IMG
 import planet from "../assets/img/4.png";

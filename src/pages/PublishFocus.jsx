@@ -1,5 +1,9 @@
+/* HAVE A FOCUS TO ONE PUBLISH WITH MORE INFORMATIONS */
+
+
+// IMPORT REACT
 import React from "react";
-import "../../src/styles/PublishFocus.scss";
+
 
 //PACKAGE
 import { useEffect, useState } from "react";
@@ -8,10 +12,16 @@ import { useParams } from "react-router-dom";
 import NavMain from "../components/Nav/NavMain";
 import axios from "axios";
 
+// SCSS
+import "../../src/styles/PublishFocus.scss";
+
 //IMG
+import dislike from "../assets/img/Heartvide.png";
 import like from "../assets/img/1.png";
 import play from "../assets/img/Play.png";
 import close from "../assets/img/14.png";
+
+
 
 const PublishFocus = () => {
   const { id } = useParams();
@@ -69,9 +79,6 @@ const PublishFocus = () => {
                 </div>
               </div>
               <div className="icone-publish">
-                <p>
-                  <img className="like" src={like} alt="" />
-                </p>
                 <p>
                   <img
                     className="like"

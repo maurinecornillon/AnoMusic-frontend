@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// A REVOIR
+
 const apiHandler = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL,
 });
@@ -19,12 +21,6 @@ function errorHandler(error) {
   throw error;
 }
 
-// apiHandler.signup = (userInfo) => {
-// 	return apiHandler
-// 		.post("/api/auth/signup")
-// 		.then((res) => res.data)
-// 		.catch(errorHandler)
-// }
 
 const service = {
   // Service is spread to have access to the basics get/post...
@@ -71,12 +67,7 @@ const service = {
       .catch(errorHandler);
   },
 
-  // getAllTheCats() {
-  // 	return service
-  // 		.get("/api/cats")
-  // 		.then((res) => res.data)
-  // 		.catch(errorHandler);
-  // },
+
 };
 
 // export default apiHandler
