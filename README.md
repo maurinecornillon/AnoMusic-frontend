@@ -22,4 +22,4 @@ and play their music to discover new song !
 - Add possibility to search publish with tags 
 - Add new features for the design 
 
-### Link to my app (https://anomusic.netlify.app/)
+
